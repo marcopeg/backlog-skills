@@ -1,0 +1,47 @@
+name: Test skills
+on: [push, pull_request, workflow_dispatch]
+env:
+  PYTHONUTF8: "1"
+permissions:
+  contents: read
+jobs:
+  privacy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check publishable source for common private details
+        run: python3 scripts/privacy_audit.py
+
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python: ['3.10', '3.13']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m unittest discover -s tests -v
+
+  installation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install with the Skills CLI in a disposable project
+        shell: bash
+        run: |
+          bundle_source="$GITHUB_WORKSPACE"
+          install_project="$(mktemp -d)"
+          cd "$install_project"
+          npx --yes skills@1.5.26 add "$bundle_source" --skill '*' --agent codex claude-code --yes
+          python .claude/skills/backlog-draft/scripts/scaffold_draft.py --title 'Installed helper smoke test' --task-id GH78
+          test -f docs/backlog/BACKLOG.md
+          test "$(find .agents/skills -name SKILL.md | wc -l)" -eq 13

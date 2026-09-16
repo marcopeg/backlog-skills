@@ -1,0 +1,16 @@
+{
+  "name": "backlog-skills",
+  "owner": {
+    "name": "Backlog Skills contributors"
+  },
+  "plugins": [
+    {
+      "name": "backlog-skills",
+      "source": "./plugins/backlog-skills",
+      "description": "13 skills for drafting, clarifying, planning, executing, and preserving a Markdown project backlog."
+    }
+  ],
+  "metadata": {
+    "description": "All 13 Backlog Skills for Markdown project planning and memory."
+  }
+}

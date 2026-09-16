@@ -1,0 +1,4 @@
+interface:
+  display_name: "Backlog Compress"
+  short_description: "Compress stable backlog tasks into history"
+  default_prompt: "Use $backlog-compress to find and compress eligible backlog tasks."

@@ -1,0 +1,17 @@
+{
+  "name": "backlog-skills",
+  "version": "1.2.0",
+  "description": "13 skills for drafting, clarifying, planning, executing, and preserving a Markdown project backlog.",
+  "author": {
+    "name": "Backlog Skills contributors"
+  },
+  "homepage": "https://github.com/marcopeg/backlog-skills",
+  "repository": "https://github.com/marcopeg/backlog-skills",
+  "license": "MIT",
+  "keywords": [
+    "backlog",
+    "agent-skills",
+    "project-management"
+  ],
+  "skills": "./skills/"
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Backlog Epic Refine Refinement"
+  short_description: "Refine an epic and its child tasks through question rounds"
+  default_prompt: "Refine this backlog epic and its child tasks until they are ready for planning."

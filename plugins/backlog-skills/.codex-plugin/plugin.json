@@ -1,0 +1,30 @@
+{
+  "name": "backlog-skills",
+  "version": "1.2.0",
+  "description": "13 skills for drafting, clarifying, planning, executing, and preserving a Markdown project backlog.",
+  "author": {
+    "name": "Backlog Skills contributors"
+  },
+  "homepage": "https://github.com/marcopeg/backlog-skills",
+  "repository": "https://github.com/marcopeg/backlog-skills",
+  "license": "MIT",
+  "keywords": [
+    "backlog",
+    "agent-skills",
+    "project-management"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Backlog Skills",
+    "shortDescription": "From rough ideas to durable project memory.",
+    "longDescription": "13 skills for drafting, clarifying, planning, executing, and preserving a Markdown project backlog.",
+    "developerName": "Backlog Skills contributors",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": [
+      "Draft a backlog task from this idea.",
+      "Clarify the next task in my backlog.",
+      "Plan a refined backlog task."
+    ]
+  }
+}
